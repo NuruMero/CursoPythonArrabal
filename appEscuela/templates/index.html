@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Alumnos</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+    <body>
+        <h1>Lista de Alumnos</h1>
+        <table class="table table-striped">
+            <tr class="thead-light">
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Curso</th>
+            </tr>
+            {% for alumno in alumnos %}
+                <tr>
+                    <td scope="row"><b>{{ alumno[0] }}</b></td>
+                    <td>{{ alumno[1] }}</td>
+                    <td>{{ alumno[2] }}</td>
+                    <td>{{ alumno[3] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <form action="/submit" method="post" class="m-5">
+            <div class="form-group">
+                <label for="name"> Nombre </label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Tu nombre...">
+            </div>
+            <div class="form-group">
+                <label for="age"> Edad </label>
+                <input type="number" class="form-control" id="age" name="age" placeholder="Tu edad...">
+            </div>
+            <div class="form-group">
+                <label for="course"> Curso </label>
+                <input type="number" class="form-control" id="course" name="course" placeholder="Curso actual...">
+            </div>
+            <button type="submit" class="btn btn-primary" name="submit" value="Submit">Añadir alumno</button>    
+        </form>
+    </body>
+</html>
